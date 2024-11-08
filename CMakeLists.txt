@@ -11,5 +11,7 @@ link_directories(${PCL_LIBRARY_DIRS})
 add_definitions(${PCL_DEFINITIONS})
 
 add_executable(statistical_filtering statistical_filtering.cpp)
+add_executable(radius_filtering radius_filtering.cpp)
 
 target_link_libraries(statistical_filtering ${PCL_LIBRARIES})
+target_link_libraries(radius_filtering ${PCL_LIBRARIES})
