@@ -12,6 +12,7 @@
 人为给定的阈值为邻居数量K，标准差倍数阈值std_mul
 
 核心代码：
+
 、、、
 double sum = 0, sq_sum = 0;
 for (const float &distance : distances)
@@ -26,7 +27,9 @@ double stddev = sqrt (variance);
 
 double distance_threshold = mean + std_mul_ * stddev;
 、、、
+
 代码中对标准偏差的公式进行推导简化，推导如下：
+
 $$
 \sqrt{\frac{\Sigma_{i=0}^{n}(r_i - r_m)^2}{n - 1}}
 \sqrt{\frac{r_{1}^{2} + r_{1}^{2} + \cdots + r_{n}^{2} - 2r_{1}r_{m} - 2r_{2}r_{m} - \cdots - 2r_{n}r_{m} + nr_{m}^{2}}{n - 1}}
