@@ -60,3 +60,12 @@ int k = searcher_->radiusSearch (*it, search_radius_, nn_indices, nn_dists);
 滤波效果：
 
 ![image](image/r_f.png)
+
+## 2.直通滤波
+方法：
+
+在X、Y和Z三个方向上设置不同的边界阈值进行裁减
+
+滤波效果：
+
+![image](image/p_f.png)
