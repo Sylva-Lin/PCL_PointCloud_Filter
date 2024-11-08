@@ -20,7 +20,7 @@ int main(int argc, char* argv[]){
         return -1;
     }
 
-    cout << "Loaded" << cloud->points.size() << "points from" << argv[1] << endl;
+    cout << "Loaded " << cloud->points.size() << " points from " << argv[1] << endl;
 
     pcl::RadiusOutlierRemoval<pcl::PointXYZ> radius_filter;
     radius_filter.setInputCloud(cloud);

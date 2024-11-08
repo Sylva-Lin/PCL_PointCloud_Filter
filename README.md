@@ -43,3 +43,20 @@ $\sqrt{\frac{r_{1}^{2} + r_{2}^{2} + \cdots + r_{n}^{2} - \frac{(r_{1} + r_{2} +
 滤波效果：
 
 ![image](image/s_f.png)
+
+## 2.半径滤波
+方法：
+
+遍历每个点，查询位于半径内的点数是否满足设定阈值，若不满足则为外点
+
+人为给定的阈值为半径大小、半径内的点数阈值
+
+核心代码：
+
+```
+int k = searcher_->radiusSearch (*it, search_radius_, nn_indices, nn_dists);
+```
+
+滤波效果：
+
+![image](image/r_f.png)
