@@ -4,9 +4,11 @@
 
 using namespace std;
 
-int main(int argc, char* argv[]){
+int main(int argc, char *argv[])
+{
 
-    if(argc != 3){
+    if (argc != 3)
+    {
         cout << "Usage: " << argv[0] << " <input.pcd> <output.pcd>" << endl;
         return -1;
     }
@@ -14,7 +16,8 @@ int main(int argc, char* argv[]){
     pcl::PointCloud<pcl::PointXYZ>::Ptr cloud(new pcl::PointCloud<pcl::PointXYZ>);
     pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_filtered(new pcl::PointCloud<pcl::PointXYZ>);
 
-    if(pcl::io::loadPCDFile<pcl::PointXYZ>(argv[1], *cloud) == -1){
+    if (pcl::io::loadPCDFile<pcl::PointXYZ>(argv[1], *cloud) == -1)
+    {
         PCL_ERROR("Could not read input file \n");
         return -1;
     }
