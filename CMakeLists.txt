@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.0)
 project(PointCloudDenoising)
 
+SET(CMAKE_BUILD_TYPE "Debug")
+
 find_package(PCL REQUIRED)
 
 include_directories(${PCL_INCLUDE_DIRS})
