@@ -78,3 +78,12 @@ int k = searcher_->radiusSearch (*it, search_radius_, nn_indices, nn_dists);
 滤波效果：
 
 ![image](image/c_f.png)
+
+## 5.投影模型滤波
+方法：
+
+将点云投影至一个指定的模型，如平面、圆柱、球等
+
+滤波效果：
+
+![image](image/m_f.png)
