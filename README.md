@@ -61,7 +61,7 @@ int k = searcher_->radiusSearch (*it, search_radius_, nn_indices, nn_dists);
 
 ![image](image/r_f.png)
 
-## 2.直通滤波
+## 3.直通滤波
 方法：
 
 在X、Y和Z三个方向上设置不同的边界阈值进行裁减
@@ -69,3 +69,12 @@ int k = searcher_->radiusSearch (*it, search_radius_, nn_indices, nn_dists);
 滤波效果：
 
 ![image](image/p_f.png)
+
+## 4.条件滤波
+方法：
+
+可以根据点云的维度信息设置不同的条件，比如根据X，Y，Z设置条件，类似于直通滤波，也可以根据强度信息、RGB信息或曲率信息设置条件
+
+滤波效果：
+
+![image](image/c_f.png)
