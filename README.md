@@ -13,7 +13,7 @@
 
 核心代码：
 
-```bash
+```
 double sum = 0, sq_sum = 0;
 for (const float &distance : distances)
 {
@@ -83,6 +83,51 @@ int k = searcher_->radiusSearch (*it, search_radius_, nn_indices, nn_dists);
 方法：
 
 将点云投影至一个指定的模型，如平面、圆柱、球等
+
+以平面模型为例子，设平面模型为 ax + by + cz + d = 0，平面的法向量为(a,b,c)
+
+依次计算点云中每个点到平面的距离，如下
+
+$d = \frac{|ax_0 + by_0 + cz_0 + d|}{\sqrt{a^2 + b^2 + c^2}}$
+
+$x' = x + d\frac{a}{\sqrt{a^2 + b^2 + c^2}}$
+
+$y' = y + d\frac{b}{\sqrt{a^2 + b^2 + c^2}}$
+
+$z' = z + d\frac{c}{\sqrt{a^2 + b^2 + c^2}}$
+
+按照上述方法即可将所有点投影至指定的平面上
+
+核心代码：
+
+```
+void projectPoints(const std::vector<int>& indices, const Eigen::VectorXf& model_coefficients, pcl::PointCloud<pcl::PointXYZ>& output, bool compute_distance)
+{
+    float a = model_coefficients[0];
+    float b = model_coefficients[1];
+    float c = model_coefficients[2];
+    float d = model_coefficients[3];
+    float n_norm = sqrt(a * a + b * b + c * c);
+
+    for (const auto& index : indices)
+    {
+        const pcl::PointXYZ& point = cloud->points[index];
+        float t = -(a * point.x + b * point.y + c * point.z + d) / (n_norm * n_norm);
+
+        pcl::PointXYZ projected_point;
+        projected_point.x = point.x + t * a;
+        projected_point.y = point.y + t * b;
+        projected_point.z = point.z + t * c;
+
+        if (compute_distance)
+        {
+            float distance = std::abs(t * n_norm);
+        }
+
+        output.push_back(projected_point);
+    }
+}
+```
 
 滤波效果：
 
