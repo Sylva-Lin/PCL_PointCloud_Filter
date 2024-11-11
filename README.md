@@ -132,3 +132,11 @@ void projectPoints(const std::vector<int>& indices, const Eigen::VectorXf& model
 滤波效果：
 
 ![image](image/m_f.png)
+
+## 6.体素滤波
+
+方法：
+
+滤波效果：
+
+![image](image/v_f.png)
