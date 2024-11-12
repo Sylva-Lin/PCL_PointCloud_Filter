@@ -139,7 +139,7 @@ void projectPoints(const std::vector<int>& indices, const Eigen::VectorXf& model
 
 1）遍历每一个点，根据设置的体素值计算每个点对应的体素坐标(i, j, k)，对体素坐标进行编码，PCL内置的编码方式如下：
 
-$index = i*1 + j*v_x + k*v_x*v_y$, $v_x$和$v_y$表示沿着x轴和沿着y轴的体素数量
+$ index = i*1 + j*v_x + k*v_x*v_y $, $ v_x $和$ v_y $表示沿着x轴和沿着y轴的体素数量
 
 2）对第一步得到的索引编码进行排序，然后构造一个pair记录每个体素对应的点索引；
 
